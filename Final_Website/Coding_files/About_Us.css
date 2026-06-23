@@ -1,0 +1,309 @@
+/* ============================================================
+   1. GLOBAL STYLES & COLORS
+   ============================================================ */
+:root {
+    --dark-yellow: #ffe064;
+    --light-yellow: #fffec1;
+    --white: #ffffff;
+    --black: #1f2937;
+    --gray-text: #4b5563;
+}
+
+/* Ensure the video/image "sticks" to the background */
+body {
+    background: url("../Flower_images/Background.jpg") center/cover no-repeat fixed;
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--black);
+}
+
+/* If you want a different image, replace the URL above with the correct file path */
+
+
+/* ====================
+   2. NAVIGATION 
+   ==================== */
+.site-header {
+    background: var(--light-yellow) !important;
+    padding: 1.5rem 0 !important;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+}
+
+.main-nav {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 1.1rem;       
+    font-weight: 500;        
+    font-family: 'Quicksand', sans-serif;
+    padding: 8px 16px;
+    border-radius: 15px; 
+    transition: all 0.3s ease;
+    display: inline-block;
+    background-color: transparent;
+}
+
+.main-nav a:hover {
+    background-color: var(--dark-yellow);
+    color: var(--black);
+}
+
+/* ============================================================
+   3. HEADER SECTION (Title with WHITE underline)
+   ============================================================ */
+.header-section {
+    text-align: center;
+    padding: 25px 0 !important;
+    margin: 0 !important;
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 5px;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+/* White underline below the title */
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20%;
+    width: 60%;
+    height: 4px;
+    background-color: var(--white)!important; /* White line */
+    border-radius: 10px;
+}
+
+/* ============================================================
+   4. CARDS GRID (Force all images aligned perfectly on the left)
+   ============================================================ */
+.cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding-bottom: 50px;
+}
+.card {
+    background: rgba(255, 255, 255, 0.85) !important; /* 85% white so video background is visible */
+    display: flex !important;
+    flex-direction: row !important;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    margin-bottom: 40px;
+    
+    /* IMPORTANT: Remove fixed height completely */
+    height: auto !important; 
+    min-height: 400px; /* Keeps box neat but allows stretching */
+    width: 100%;
+    
+    /* Ensure image stretches with text */
+    align-items: stretch; 
+    
+    /* Prevent content from being hidden */
+    overflow: hidden !important; 
+}
+/* Remove any zig-zag effect that shifts alignment */
+.card:nth-child(even), 
+.card:nth-child(odd),
+.card:nth-of-type(n) {
+    flex-direction: row !important;
+}
+
+/* Image alignment */
+.card img {
+    flex: 0 0 45%; /* Image stays exactly 45% width */
+    max-width: 45%;
+    min-height: 100%; /* Force image to fill full card height */
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    flex: 1; /* Text fills remaining space */
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* Ensure content never gets cut off */
+    height: auto !important;
+    min-height: 100%;
+}
+
+/* ============================================================
+   5. FOOTER (Thin Yellow Bar)
+   ============================================================ */
+.site-footer {
+    background-color: var(--light-yellow) !important; 
+    display: block !important;
+    clear: both !important;
+    width: 100% !important;
+    padding: 10px 0 !important; 
+    margin-top: 40px !important; 
+    text-align: center !important;
+}
+
+.site-footer p {
+    margin: 0 !important; 
+    font-family: 'Quicksand', sans-serif;
+    color: var(--black) !important;
+    font-size: 0.85rem !important; 
+    font-weight: 500;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+   =========================*/
+
+/* Responsive for tablets and smaller screens */
+@media (max-width: 1024px) {
+   .cards-grid {
+      gap: 20px;
+      padding: 20px;
+   }
+   .card-content {
+      padding: 2rem;
+   }
+   .page-title {
+      font-size: 2.5rem;
+      letter-spacing: 3px;
+   }
+}
+
+/* Responsive for MOBILE */
+@media (max-width: 768px) {
+   /* Navigation vertical and smaller */
+   .main-nav ul {
+      flex-direction: column;
+      text-align: center;
+   }
+   .main-nav a {
+      font-size: 0.9rem;   /* smaller font */
+   }
+
+   /* Hero section: text and image stacked */
+   .hero {
+      flex-direction: column;
+   }
+
+   /* Cards: single column */
+   .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;   /* one column */
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+   }
+
+   /* Card layout: image on top, text below */
+   .card {
+      display: flex;
+      flex-direction: column;       
+      border-radius: 15px;
+      border: 1px solid #eee;
+      overflow: hidden;
+      background: #fff;
+      height: auto;    
+   }
+   .card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      object-position: 40% 30%; /* shift focus upward */
+   }
+   .card-content {
+      flex: 1;                       
+      height: auto !important;       
+      padding: 1.2rem;
+      overflow: visible;  
+      text-align: center;           
+   }
+   .card-content p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+   }
+
+   /* Smaller title */
+   .page-title {
+      font-size: 2rem;
+      letter-spacing: 2px;
+   }
+}
+
+/* =========================
+   PRINT-FRIENDLY STYLES
+   =========================*/
+@media print {
+   @page {
+      size: A4;
+      margin: 20mm;
+   }
+
+   body {
+      background: #fff !important;
+      color: #000 !important;
+      font-size: 12pt;
+      line-height: 1.5;
+   }
+
+   /* Hide unnecessary elements */
+   #bg-video, .site-header, .site-footer {
+      display: none !important;
+   }
+
+   /* Center title */
+   .header-section {
+      text-align: center;
+      margin-bottom: 20px;
+   }
+   .page-title {
+      font-size: 28pt;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+   }
+
+   /* Cards stacked vertically */
+   .cards-grid {
+      display: block;        
+      max-width: 700px;
+      margin: 0 auto;
+   }
+   .card {
+      display: block;
+      border: 1px solid #000;
+      margin-bottom: 20px;
+      page-break-inside: avoid; /* keep each card on one page */
+   }
+   .card img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+   }
+   .card-content {
+      padding: 10px;
+   }
+}
+
+
+

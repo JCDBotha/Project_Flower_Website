@@ -1,0 +1,344 @@
+@charset "utf-8";
+
+/* 1. GLOBAL VARIABLES */
+:root {
+    --dark-purple: #6a417e;
+    --light-purple: #f3e8ff; 
+    --accent-purple: #c190d5;
+    --white: #FFFFFF;
+    --dark-text: #2C3E50;
+    --black: #000000;
+}
+
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dark-text);
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../Flower_images/Gate.jpg'); 
+    background-size: cover;
+    background-position: center;
+    opacity: 0.60; 
+    z-index: -1;
+}
+
+/* 2. NAVIGATION */
+nav { background: var(--dark-purple); }
+nav ul { display: flex; justify-content: center; list-style: none; padding: 25px 15px; margin: 0; gap: 20px; }
+nav a { text-decoration: none; color: var(--white); font-weight: 500; font-size: 1.1rem; padding: 8px 15px; transition: 0.3s; }
+nav a:hover { background-color: var(--accent-purple); border-radius: 5px; }
+ 
+
+/* 3. HEADER (CENTERED AND BOLD) */
+.page-header {
+    grid-column: span 2;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--dark-purple);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: #000000;
+    font-weight: 600;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+/* 4. LAYOUT CONTAINER - Fix spacing between cards */
+.full-screen-container {
+    width: 100%;
+    padding: 60px 5% 80px 5%; /* More space below before footer */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 70px; /* Large spacing between columns and rows */
+    box-sizing: border-box;
+    align-items: start;
+}
+
+/* 5. SERVICE CARDS */
+.service-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 25px;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(106, 65, 126, 0.08);
+    gap: 20px;
+    overflow: hidden;
+    height: 100%; /* Ensure cards in the same row are equal height */
+}
+
+.full-width-card {
+    grid-column: span 2;
+}
+
+.alt-bg {
+    background-color: var(--light-purple);
+    border: none;
+}
+
+.text-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-purple);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.text-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* 6. IMAGE SCROLLER */
+.image-box {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+}
+
+.image-box img {
+    flex: 0 0 180px;
+    width: 250px;
+    height: 250px; 
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* 7. CALENDAR DESIGN */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.nav-btn {
+    background: var(--dark-purple);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: var(--accent-purple);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+    text-align: center;
+}
+
+.day-name {
+    font-weight: 600;
+    color: var(--accent-purple);
+}
+
+.day {
+    padding: 15px 5px;
+    border-radius: 12px;
+    background: #f9f9f9;
+}
+
+.day.today {
+    background-color: var(--dark-purple) !important;
+    color: var(--white);
+    font-weight: bold;
+}
+
+.day.event {
+    background-color: var(--light-purple) !important; /* Light purple for events */
+    color: var(--dark-purple);
+    font-weight: bold;
+    border: 1px solid var(--accent-purple);
+}
+
+.event-legend {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.event-item {
+    transition: all 0.3s ease; /* smooth animation */
+}
+
+.event-item:hover {
+    background: rgba(190, 144, 243, 0.7); /* darker background on hover */
+    transform: scale(1.02);               /* slight zoom for interaction */
+    transition: all 0.3s ease;            
+    cursor: pointer;   
+    border-left-color: #4a2c5a !important; /* darker border strip on hover */
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.today-dot { background-color: var(--dark-purple); }
+.event-dot { background-color: var(--light-purple); border: 1px solid var(--accent-purple); }
+
+.calendar-layout { display: flex; gap: 30px; margin-top: 30px; }
+.calendar-container { flex: 1.2; background: var(--white); border: 2px solid var(--light-purple); border-radius: 20px; padding: 25px; }
+.events-details { flex: 1.5; }
+
+/* 8. FOOTER */
+footer {
+    background-color: var(--dark-purple);
+    color: var(--white);
+    text-align: center;
+    padding: 12px 0; /* Much narrower than before */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem; /* Slightly smaller text for the thinner bar */
+}
+/* --- TABLET (up to 1024px width) --- */
+@media (max-width: 1024px) {
+    .full-screen-container {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;          /* ✅ rows size to content, not fixed */
+        gap: 40px;
+        overflow: visible;             /* ✅ don't clip children */
+    }
+
+    .calendar-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .service-card {
+        min-height: unset !important;  /* ✅ fully remove fixed height */
+        height: auto !important;
+        position: static !important;   /* ✅ prevent stacking context issues */
+        overflow: visible;
+    }
+}
+
+/* --- MOBILE (up to 480px width) --- */
+@media (max-width: 480px) {
+    .page-header h1 { font-size: 2rem; }
+    .page-header p  { font-size: 1rem; }
+
+    .full-screen-container {
+        display: flex;                 /* ✅ gebruik flexbox */
+        flex-direction: column;        /* ✅ stapel alles onder mekaar */
+        align-items: stretch;          /* ✅ laat elke kaart volle breedte vat */
+        gap: 25px;
+        padding: 20px 5%;
+    }
+
+    .service-card {
+        width: 100%;                   /* ✅ volle breedte */
+        padding: 15px;
+        border-radius: 15px;
+        height: auto !important;
+        min-height: unset !important;
+        position: static !important;
+        overflow: visible;
+    }
+
+    .image-box {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .image-box img {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+    }
+
+    .calendar-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .calendar-container { padding: 15px; }
+    .detail-panel { width: 100%; margin-top: 20px; }
+}
+
+
+/* --- PRINT STYLE (A4 PDF) --- */
+@media print {
+    @page { size: A4; margin: 20mm; }
+
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+
+    nav, footer { display: none !important; }
+
+    .full-screen-container {
+        display: block;                /* ✅ swap grid for block — safer for print */
+        padding: 0;
+    }
+
+    .service-card {
+        display: block;                /* ✅ ensure block flow */
+        border: 1px solid #ccc;
+        box-shadow: none !important;
+        break-inside: avoid;           /* ✅ modern standard */
+        page-break-inside: avoid;      /* ✅ legacy fallback */
+        margin-bottom: 20px;
+        min-height: unset !important;  /* ✅ fully remove fixed height */
+        height: auto !important;
+        position: static !important;
+        overflow: visible;
+    }
+
+    .image-box { display: block; }
+    .image-box img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .calendar-layout { flex-direction: column; }
+    .calendar-container { border: 1px solid #ccc; }
+    .detail-panel {
+        width: 100% !important;
+        position: static !important;   /* ✅ static instead of relative */
+        top: auto !important;
+        padding: 0 !important;
+    }
+}

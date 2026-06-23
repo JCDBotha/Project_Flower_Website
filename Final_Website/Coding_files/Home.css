@@ -1,0 +1,336 @@
+/* =========================
+   BASE & MODERNIZATION
+========================= */
+:root {
+    --dark-green: #2d5a3d; /* Slightly more subtle dark green */
+    --soft-green: #eff4ee;
+    --white: #ffffff;
+    --gray: #4a4a4a;
+    --background: var(--soft-green);
+    --black: #000000;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--background);
+    color: var(--black);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* overflow: hidden; */
+    overflow-x: hidden;   /* prevent horizontal scrolling */
+    overflow-y: auto;     /* allow vertical scrolling */
+}
+
+/* =========================
+   HEADER & NAVIGATION
+========================= */
+.site-header {
+    background: var(--white);
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee; /* subtle divider line */
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.3rem;
+    color: var(--dark-green);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15); /* soft shadow for depth */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px; /* spacing between nav items */
+}
+
+.main-nav a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 15px;
+    transition: all 0.3s ease; /* smooth hover transition */
+}
+
+.main-nav a:hover {
+    background-color: var(--dark-green);
+    color: var(--white);
+}
+
+/* =========================
+   HERO & LAYOUT
+========================= */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 4rem 5%;
+    gap: 4rem;
+    flex: 1;
+}
+
+.hero-text { flex: 1; }
+
+.hero-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.hero-image {
+    flex: 1;
+    height: 65vh;
+    border-radius: 35px;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 60px rgba(0,0,0,0.3),
+        0 0 40px rgba(255, 200, 220, 0.4); /* layered shadow for depth */
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ensures image fills container nicely */
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--dark-green);
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: background 0.3s ease;
+}
+
+/* =========================
+   CARDS (Flip Animation)
+========================= */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 3rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    background-color: white;
+    padding: 0;
+    text-align: left;
+    perspective: 1000px; /* enables 3D flip effect */
+    height: 280px;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 1px solid #eee;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.2s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg); /* flip on hover */
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* hide back when front is visible */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-front img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-front h3 {
+    font-size: 1.1rem;
+    margin: 10px 12px 4px;
+    color: var(--dark-green);
+    text-align: center;
+}
+
+.card-front p {
+    font-size: 0.90rem;
+    color: var(--black);
+    padding: 0 12px;
+    flex: 1;
+    line-height: 1.4;
+}
+
+.card-back {
+    background: linear-gradient(135deg, var(--dark-green) 0%, #1e3d29 100%);
+    color: white;
+    padding: 18px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+.card-back p {
+    color: white;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+    background-color: #1b2c1d !important;
+    display: block !important;
+    clear: both !important;
+    width: 100% !important;
+    padding: 8px 0 !important; 
+    margin-top: 10px !important; 
+    position: relative !important;
+    z-index: 100 !important;
+    text-align: center !important;
+}
+
+.site-footer p {
+    margin: 2px 0 !important; 
+    font-family: 'Quicksand', sans-serif;
+    color: #ffffff !important;
+    font-size: 0.85rem !important; 
+    font-weight: 400;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+=========================*/
+
+/* TABLET */
+@media (max-width: 1024px) {
+   .hero {
+      flex-direction: column;
+      text-align: center;
+   }
+   .hero-text h2 {
+      font-size: 2.4rem;
+   }
+   .hero-image {
+      height: 50vh;
+   }
+   .main-nav ul {
+      gap: 10px;
+   }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+   .main-nav ul {
+      flex-direction: column;
+      text-align: center;
+      align-items: center; /* center nav items vertically */
+   }
+    .main-nav li {
+      width: auto; 
+   }
+    .hero-image {
+      order: -1;   /* move above text and cards */
+      height: 40vh;
+      border-radius: 20px;
+   }
+   .hero {
+      flex-direction: column;
+      padding: 2rem;
+   }
+   .hero-text h2 {
+      font-size: 2rem;
+   }
+   .cards {
+      grid-template-columns: 1fr;
+   }
+  
+   .btn-primary {
+      width: 100%;
+      text-align: center;
+   }
+    /* Navigation links smaller + underline removed */
+   .main-nav a {
+      display: inline-block; /* better click area */
+      width: 100%;
+      font-size: 0.9rem;          
+      text-decoration: none;
+      padding: 4px 8px; 
+      white-space: nowrap;         /* prevent breaking of long words */
+   }
+  
+   .main-nav a:hover {
+      background-color: var(--dark-green);
+      color: var(--white);
+      text-decoration: none; /* optional: remove underline on hover */
+   }
+}
+
+/* =========================
+   PRINT STYLES
+=========================*/
+@media print {
+
+   @page {
+      size: A4;
+      margin: 20mm;
+   }
+
+   body {
+      background: #fff !important;
+      color: #000 !important;
+      font-size: 12pt;
+      line-height: 1.4;
+   }
+
+   .site-header, .site-footer, .main-nav, .btn-primary {
+      display: none !important; /* hide non-essential elements in print */
+   }
+
+   /* Hero container flows vertically in print */
+   .hero {
+      display: flex;
+      flex-direction: column;   /* stack content vertically */
+      align-items: center;      /* center content */
+   }
+
+   .hero-text {
+      order: 1;
+      text-align: center;
+      align-items: center;
+      max-width: 60%;
+      margin: 0 auto 20px auto;
+      height: auto;          
+      display: block;        
+   }
+
+   .hero-image {
+      order: 2;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+      display: block;
+   }
+}

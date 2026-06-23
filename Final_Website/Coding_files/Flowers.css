@@ -1,0 +1,453 @@
+/* ============================================================
+   1. FONTS & GLOBAL STYLE
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Quicksand:wght@400;500;600&display=swap');
+
+:root {
+    --pink-dark: #f5bcde; /* Base pink */
+    --pink-hover: #f980b9;  /* Darker pink for hover */
+    --pink-soft: #fbc9e5;
+    --white: #ffffff;
+    --black: #101011;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--pink-soft) !important;
+    margin: 0;
+    min-height: 100vh;
+    overflow-y: auto; /* Ensure scrolling is possible */
+}
+
+/* Make the main container a flexbox */
+main {
+    display: flex; /* OR grid, depending on HTML */
+    flex: 1;
+    width: 100%; /* Force full width */
+    padding: 20px;
+    margin: 0;
+    max-width: 100% !important; /* Prevent restriction */
+}
+
+/* ============================================================
+   2. NAVIGATION
+   ============================================================ */
+.site-header {
+    background: var(--white);
+    padding: 0.5rem 0 !important;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+}
+
+.main-nav {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav a, .nav-link {
+    text-decoration: none;
+    color: var(--black) !important; /* Base color */
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 8px 16px;
+    border-radius: 15px;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    background-color: transparent;
+}
+
+/* Pink hover effect */
+.main-nav a:hover, .nav-link:hover {
+    background-color: var(--pink-hover) !important;
+    color: var(--black) !important;
+    transform: translateY(-2px); /* Optional: lift button slightly */
+}
+
+/* ============================================================
+   3. TITLE & SUBTEXT (Section above gallery)
+   ============================================================ */
+.heading-font {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;            
+    color: #111827;             
+    letter-spacing: 0.02em;
+}
+
+p.text-base.text-gray-600 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;            
+    line-height: 1.6;
+    color: #2f3337;             
+}
+
+/* ============================================================
+   4. CARDS GRID (Wider layout and alignment fixed)
+   ============================================================ */
+.cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1150px; 
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: var(--white);
+    display: flex !important;
+    flex-direction: row !important; /* Force image left */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    height: auto !important; 
+    min-height: 400px; 
+    width: 100%;
+    align-items: stretch;
+}
+
+.card:nth-child(even) {
+    flex-direction: row !important;
+}
+
+.card img {
+    flex: 0 0 40%; 
+    max-width: 40%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    flex: 1; 
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+/* ============================================================
+   4. GALLERY GRID (Adjusted for wider look)
+   ============================================================ */
+.masonry {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    main { flex-direction: column; }
+    .masonry { flex: 0 0 100%; max-width: 100%; }
+    .detail-panel { width: 100%; }
+}
+
+.flower-card {
+    display: block;
+    width: 100%;
+    perspective: 1200px;
+    cursor: pointer;
+    height: 450px; /* Fixed height for alignment */
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%; 
+    position: relative;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden; 
+    background: white;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-back { transform: rotateY(180deg); }
+
+.flower-card img {
+    width: 100%;
+    height: 85%; 
+    object-fit: cover; 
+}
+
+/* Flip logic with radio buttons */
+#f1:checked ~ main label[for="f1"] .card-inner,
+#f2:checked ~ main label[for="f2"] .card-inner,
+#f3:checked ~ main label[for="f3"] .card-inner,
+#f4:checked ~ main label[for="f4"] .card-inner,
+#f5:checked ~ main label[for="f5"] .card-inner,
+#f6:checked ~ main label[for="f6"] .card-inner,
+#f7:checked ~ main label[for="f7"] .card-inner,
+#f8:checked ~ main label[for="f8"] .card-inner,
+#f9:checked ~ main label[for="f9"] .card-inner,
+#f10:checked ~ main label[for="f10"] .card-inner,
+#f11:checked ~ main label[for="f11"] .card-inner,
+#f12:checked ~ main label[for="f12"] .card-inner,
+#f13:checked ~ main label[for="f13"] .card-inner,
+#f14:checked ~ main label[for="f14"] .card-inner,
+#f15:checked ~ main label[for="f15"] .card-inner {
+    transform: rotateY(180deg);
+}
+
+.flower-name { 
+    height: 15%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 10px; 
+    font-size: 1.2rem;
+    line-height: 1.1; 
+    text-align: center; 
+    font-family: 'Playfair Display', serif; 
+    font-weight: 500;
+}
+
+/* ============================================================
+   5. DETAIL PANEL (White box on right)
+   ============================================================ */
+.detail-panel {
+    width: 95%; 
+    position: sticky; 
+    padding-right: 10px;
+    top: 20px; 
+}
+.detail-box {
+    display: none;
+    padding: 15px;
+    background: white;
+    border-radius: 20px;
+}
+
+.detail-box img {
+    width: 100%;
+    height: 450px; 
+    object-fit: cover;
+    object-position: top; 
+}
+.foto-center { object-position: center !important; }
+.foto-top { object-position: top !important; }
+
+#f1:checked ~ main #content-f1,
+#f2:checked ~ main #content-f2,
+#f3:checked ~ main #content-f3,
+#f4:checked ~ main #content-f4,
+#f5:checked ~ main #content-f5,
+#f6:checked ~ main #content-f6,
+#f7:checked ~ main #content-f7,
+#f8:checked ~ main #content-f8,
+#f9:checked ~ main #content-f9,
+#f10:checked ~ main #content-f10,
+#f11:checked ~ main #content-f11,
+#f12:checked ~ main #content-f12,
+#f13:checked ~ main #content-f13,
+#f14:checked ~ main #content-f14,
+#f15:checked ~ main #content-f15 {
+    display: block !important;
+}
+
+.detail-box h2 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.5rem; 
+    margin-bottom: 0.5rem; 
+}
+.detail-box h4 { 
+    font-family: 'Playfair Display', serif; 
+    font-weight: 700; 
+    font-size: 1.1rem;
+    color: #1e1d1d;
+}
+.detail-box p {
+    font-family: 'Quicksand', sans-serif;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* ============================================================
+   5. FOOTER (Thin bar below)
+   ============================================================ */
+.site-footer {
+    clear: both; 
+    width: 100%;
+    margin-top: 40px;
+    background-color: var(--dark-yellow); /* Ensure variable is defined */
+    text-align: center;
+    padding: 20px 0;
+    display: block; 
+}
+
+.site-footer p {
+    font-size: 1.rem !important;
+    margin: 0 !important;
+    font-weight: 500;
+}
+footer {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 40px 0;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 60px;
+    text-align: center;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+   =========================*/
+
+/* TABLET (up to 768px width) */
+@media (max-width: 768px) {
+    .heading-font {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    .cards-grid {
+        gap: 25px;
+        max-width: 95%;
+    }
+
+    .card {
+        flex-direction: column !important; /* Image on top, text below */
+        min-height: auto;
+    }
+
+    .card img {
+        max-width: 100%;
+        flex: 0 0 auto;
+        height: 250px;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .masonry {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+
+    .detail-panel {
+        position: relative;
+        width: 100%;
+        top: auto;
+        padding: 0;
+        margin-top: 20px;
+    }
+}
+
+/* MOBILE (up to 480px width) */
+@media (max-width: 480px) {
+    .heading-font {
+        font-size: 1.8rem;
+    }
+
+    p.text-base.text-gray-600 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .cards-grid {
+        padding: 0 10px;
+    }
+
+    .card {
+        flex-direction: column !important;
+        border-radius: 15px;
+    }
+
+    .card img {
+        height: 200px;
+    }
+
+    .masonry {
+        grid-template-columns: 1fr; /* 1 column */
+    }
+
+    .flower-card {
+        height: 350px;
+    }
+
+    .detail-box img {
+        height: 250px;
+    }
+}
+
+/* =========================
+   PRINT STYLE
+   =========================*/
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 12pt;
+    }
+
+    /* Hide navigation and footer */
+    .site-header, .site-footer, nav, .main-nav {
+        display: none !important;
+    }
+
+    /* Neutralize flip animation */
+    .card-inner {
+        transform: none !important;
+    }
+
+    /* Show only the front of the card */
+    .card-back {
+        display: none !important;
+    }
+
+    .card-front {
+        position: relative !important;
+        transform: none !important;
+        backface-visibility: visible !important;
+    }
+
+    /* Keep cards whole on one page */
+    .card, .flower-card, .detail-box {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;   /* for modern browsers */
+        box-shadow: none !important;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+
+    /* Ensure text and images print neatly */
+    .card, .detail-box {
+        box-shadow: none !important;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Detail panel prints neatly too */
+    .detail-panel {
+        position: relative !important;
+        top: auto !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+}

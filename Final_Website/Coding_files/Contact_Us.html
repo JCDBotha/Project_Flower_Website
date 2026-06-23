@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | In Full Bloom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Contact_Us.css">
+    <style>
+   
+        #surveyForm {
+            transition: opacity 0.5s ease;
+        }
+        #successMessage {
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Contact_Us.html">About Us</a></li>
+            <li><a href="Flowers.html">Flowers</a></li>
+            <li><a href="Services.html">Our Services</a></li>
+            <li><a href="Online_Store.html">Shop</a></li>
+            <li><a href="Basket.html">Cart</a></li>
+            <li><a href="Contact_Us.html" class="active">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1>Contact Us</h1>
+
+        <section class="contact-grid">
+            
+            <!-- LEFT CARD -->
+            <div class="contact-card">
+                <h2>Contact Details</h2>
+                <p><strong>Phone:</strong> +27 78 998 5574</p>
+
+                <p><strong>WhatsApp:</strong> 
+                    <a href="https://wa.me/27789985574?text=Hallo%20ek%20wil%20meer%20weet%20oor%20julle%20blomme!">
+                         Send a WhatsApp Message
+                    </a>
+                </p>
+                <p><strong>Address:</strong> 740 Curlewis Street, Moreleta Park, Pretoria, 0044, South-Africa
+                
+                <h3>Location</h3>
+
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3591.970635486846!2d28.28723907616654!3d-25.80453534785465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e955d886915239b%3A0xc331165181347070!2s740%20Curlewis%20St%2C%20Moreleta%20Park%2C%20Pretoria%2C%200044!5e0!3m2!1sen!2sza!4v1715520000000!5m2!1sen!2sza" 
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+                <fieldset>
+                    <legend>Location Feedback</legend>
+
+                    <div class="formRow">
+                        <label for="loc_easy">Was it easy to find our location?*</label>
+                        <select id="loc_easy" name="loc_easy" required>
+                            <option value="">Select an option</option>
+                            <option value="ja">Yes</option>
+                            <option value="nee">No</option>
+                            <option value="redelik">Fairly</option>
+                        </select>
+                    </div>
+
+                    <div class="formRow">
+                        <label for="directions">Were the directions clear?*</label>
+                        <select id="directions" name="directions" required>
+                            <option value="">Select an option</option>
+                            <option value="ja">Yes</option>
+                            <option value="nee">No</option>
+                            <option value="bietjie">A bit confusing</option>
+                        </select>
+                    </div>
+
+                    <div class="formRow">
+                        <label for="parking">Could you easily find parking?*</label>
+                        <select id="parking" name="parking" required>
+                            <option value="">Select an option</option>
+                            <option value="ja">Yes</option>
+                            <option value="nee">No</option>
+                            <option value="beperk">Limited</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </div>
+
+            <!-- RIGHT CARD -->
+            <div class="contact-card">
+                <h2>Customer Survey</h2>
+                <form id="surveyForm">
+                    
+                    <fieldset id="custInfo">
+                        <legend>Customer Information</legend>
+                        <div class="formRow">
+                            <label for="name">Name*</label>
+                            <input name="custName" id="name" type="text" placeholder="First name and surname" required />
+                        </div>
+                        <div class="formRow">
+                            <label for="phone">Phone*</label>
+                            <input name="custPhone" id="phone" type="tel" placeholder="(0nn) nnn-nnnn" required />
+                        </div>
+                        <div class="formRow">
+                            <label for="mail">Email*</label>
+                            <input name="custEmail" id="mail" type="email" required />
+                        </div>
+                    </fieldset>
+
+                    <fieldset id="serviceRating">
+                        <legend>How was our service?</legend>
+                        <div class="formRow">
+                            <label>Overall experience:*</label>
+                            <div class="radioGroup">
+                                <input type="radio" name="rating" id="excellent" value="excellent" required>
+                                <label for="excellent">Excellent</label>
+                                <input type="radio" name="rating" id="good" value="good" required>
+                                <label for="good">Good</label>
+                                <input type="radio" name="rating" id="average" value="average" required>
+                                <label for="average">Average</label>
+                            </div>
+                        </div>
+             
+                        <div class="formRow">
+                            <label>Was it easy to order?*</label>
+                            <div class="radioGroup">
+                                <input type="radio" name="easy_order" id="order_yes" value="ja" required>
+                                <label for="order_yes">Yes</label>
+                                <input type="radio" name="easy_order" id="order_no" value="nee" required>
+                                <label for="order_no">No</label>
+                                <input type="radio" name="easy_order" id="order_avg" value="gemiddeld" required>
+                                <label for="order_avg">Average</label>
+                            </div>
+                        </div>
+               
+                        <div class="formRow">
+                            <label>Favorites (Choose at least one):*</label>
+                            <div class="checkGroup">
+                                <input type="checkbox" name="fav" id="bouquets" value="bouquets" class="fav-checkbox">
+                                <label for="bouquets">Bouquets</label>
+                                <input type="checkbox" name="fav" id="weddings" value="weddings" class="fav-checkbox">
+                                <label for="weddings">Weddings</label>
+                                <input type="checkbox" name="fav" id="delivery" value="delivery" class="fav-checkbox">
+                                <label for="delivery">Delivery</label>
+                            </div>
+                        </div>
+                    </fieldset>
+     
+                    <fieldset id="expInfo">
+                        <legend>Message</legend>
+    
+                        <div class="formRow full-width">
+                            <label for="improve">What can we improve?*</label>
+                            <textarea name="improvement" id="improve" rows="5" placeholder="Tell us how we can make your experience better..." required></textarea>
+                        </div>
+    
+                        <div class="formRow full-width">
+                            <label for="comments">Any other inquiries can be filled in below:*</label>
+                            <textarea name="custExp" id="comments" rows="5" placeholder="Write your message here..." required></textarea>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit">Send Message</button>
+                </form>
+
+                <div id="successMessage" style="display:none; text-align:center; padding:20px; background:rgba(72, 185, 255, 0.2); color:#005fa3; border: 1px solid var(--ligte-blou); border-radius:15px; margin-top:20px; backdrop-filter: blur(5px);">
+                    <h3 style="font-family: 'Playfair Display', serif;">Thank You!</h3>
+                    <p>Your message has been successfully sent!</p>
+                    <p>We will contact you within 24 hours.</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 South African Flower Farm</p>
+    </footer>
+
+    <!--Javacript Functionality for Contact Form -->
+ <script>
+    const contactForm = document.getElementById('surveyForm');
+    const successDiv = document.getElementById('successMessage');
+    const checkboxes = document.querySelectorAll('.fav-checkbox');
+
+    function checkCheckboxes() {
+        let checked = false;
+        checkboxes.forEach(cb => {
+            if (cb.checked) checked = true;
+        });
+        checkboxes.forEach(cb => {
+            cb.required = !checked;
+        });
+    }
+
+    checkboxes.forEach(cb => {
+        cb.addEventListener('change', checkCheckboxes);
+    });
+
+    checkCheckboxes();
+
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        contactForm.style.opacity = '0';
+        
+        setTimeout(() => {
+            contactForm.style.display = 'none';
+            successDiv.style.display = 'block';
+            successDiv.style.opacity = '1';
+
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+                
+                // 1. Cleaning or deleting entries
+                contactForm.reset();
+                
+                // 2. Resetting the checkboxes
+                document.getElementById('loc_easy').value = "";
+                document.getElementById('directions').value = "";
+                document.getElementById('parking').value = "";
+
+                checkCheckboxes(); 
+                
+                contactForm.style.display = 'block';
+                setTimeout(() => {
+                    contactForm.style.opacity = '1';
+                }, 50);
+            }, 4000); // 4 seconds before resetting the form
+            
+        }, 500);
+    });
+    </script>
+</body>
+</html>

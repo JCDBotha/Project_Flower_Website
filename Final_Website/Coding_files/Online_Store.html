@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Catalog | In Full Bloom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Online_Store.css">
+</head>
+<body>
+
+
+    <nav>
+    <ul>
+        <li><a href="Home.html" class="nav-link">Home</a></li>
+            <li><a href="About_Us.html" class="nav-link">About Us</a></li>
+            <li><a href="Flowers.html" class="nav-link">Flowers</a></li>
+            <li><a href="Online_Store.html" class="nav-link">Shop</a></li>
+            <li><a href="Basket.html" class="nav-link">Basket</a></li>
+            <li><a href="Services.html" class="nav-link">Our Services</a></li>
+            <li><a href="Contact_Us.html" class="nav-link">Contact Us</a></li>
+    </ul>
+</nav>
+
+
+      <!-- Login Modal -->
+<div id="loginModal" class="login-modal" style="display:none;">
+    <div class="login-content">
+        <span class="close" id="closeLogin">&times;</span>
+        <h2>Log In</h2>
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <button onclick="handleLogin()">Log In</button>
+    </div>
+</div>
+  
+
+<!-- Login / Logout Container -->
+<div class="login-container" style="text-align: right; padding: 10px 20px; background: #fdf7f2; font-family: 'Quicksand', sans-serif;">
+    <div id="loggedOutUI">
+        <button id="loginBtn" class="nav-link" style="border:none; background:none; cursor:pointer;">
+            <i class="fas fa-user-circle"></i> Log In
+        </button>
+    </div>
+    <div id="loggedInUI" style="display:none;">
+        <span id="userWelcome" style="font-weight:600; color: #6a417e; margin-right: 15px;"></span>
+        <button onclick="handleLogout()" style="border:none; background:none; cursor:pointer; color: #ff6b6b; font-size: 0.9em;">
+            <i class="fas fa-sign-out-alt"></i> Log Out
+        </button>
+    </div>
+</div>
+
+
+
+    <header class="catalog-header">
+        <h1>In Full Bloom Catalog</h1>
+        <p>Our complete range: Bouquets, Weddings, Decor and all 15 Single Flowers</p>
+    </header>
+
+    <div class="cart-button-container">
+    <a href="Basket.html" class="go-to-cart-btn">
+        <span id="cart-count">0</span>
+        <i class="fas fa-shopping-basket"></i> Go to Basket
+    </a>
+    </div>
+
+    <h2 class="section-title">Our Flower Range</h2>
+
+    <main class="container">
+        
+        <h2 class="section-title">Flower Bouquets</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="stock-badge stock-in">In Stock</div>
+                <img src="../Flower_images/Wildflowers_Bouquet.jpg" alt="Small Bouquet">
+                <div class="product-info">
+                    <h3>Small Bouquet</h3>
+                    <p>Fresh seasonal flowers and basic packaging.</p>
+                    <div class="card-footer">
+                        <p class="price">R 150.00</p>
+                        <button class="buy-btn" onclick="addToCart('Small Bouquet', 150)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="stock-badge stock-low">Low Stock</div>
+                <img src="../Flower_images/Classic_Bouquet.jpg" alt="Classic Bouquet">
+                <div class="product-info">
+                    <h3>Classic Bouquet</h3>
+                    <p>Medium bouquet with roses and daisies.</p>
+                    <div class="card-footer">
+                        <p class="price">R 250.00</p>
+                        <button class="buy-btn" onclick="addToCart('Classic Bouquet', 250)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="stock-badge stock-in">In Stock</div>
+                <img src="../Flower_images/Elegant_Bouquet.jpg" alt="Elegant Bouquet">
+                <div class="product-info">
+                    <h3>Elegant Bouquet</h3>
+                    <p>Premium flowers with large heads and ribbon.</p>
+                    <div class="card-footer">
+                        <p class="price">R 350.00</p>
+                        <button class="buy-btn" onclick="addToCart('Elegant Bouquet', 350)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="stock-badge stock-low">Low Stock</div>
+                <img src="../Flower_images/Luxury_Bouquet.jpg" alt="Luxury Bouquet">
+                <div class="product-info">
+                    <h3>Luxury Bouquet</h3>
+                    <p>Impressive selection of Roses, Lilies and Gerberas.</p>
+                    <div class="card-footer">
+                        <p class="price">R 450.00</p>
+                        <button class="buy-btn" onclick="addToCart('Luxury Bouquet', 450)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="stock-badge stock-in">In Stock</div>
+                <img src="../Flower_images/Premium (2).jpeg" alt="Premium Bouquet">
+                <div class="product-info">
+                    <h3>Premium Bouquet</h3>
+                    <p>Hand-tied bouquet with high-quality flowers.</p>
+                    <div class="card-footer">
+                        <p class="price">R 550.00</p>
+                        <button class="buy-btn" onclick="addToCart('Premium Bouquet', 550)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="stock-badge stock-out">Out of Stock - Back soon</div>
+                <img src="../Flower_images/Exclusive_bouquet.jpg" alt="Exclusive Bouquet">
+                <div class="product-info">
+                    <h3>Exclusive Bouquet</h3>
+                    <p>Our most luxurious bouquet for special moments.</p>
+                    <div class="card-footer">
+                        <p class="price">R 750.00</p>
+                        <button class="buy-btn" onclick="addToCart('Exclusive Bouquet', 750)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Wedding Bouquets</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="stock-badge stock-in">Available on Order</div>
+                <img src="../Flower_images/trou_1.jpg" alt="Bridal Bouquet">
+                <div class="product-info">
+                    <h3>Bridal Bouquet</h3>
+                    <p>Specially designed for the bride's big day.</p>
+                    <div class="card-footer">
+                        <p class="price">R 750.00</p>
+                        <button class="buy-btn" onclick="addToCart('Bridal Bouquet', 750)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-low">Low Stock</div>
+                <img src="../Flower_images/trou_2.jpg" alt="Bridesmaids">
+                <div class="product-info">
+                    <h3>Bridesmaids Bouquet</h3>
+                    <p>Matching smaller bouquets for the bridal party.</p>
+                    <div class="card-footer">
+                        <p class="price">R 350.00</p>
+                        <button class="buy-btn" onclick="addToCart('Bridesmaids Bouquet', 350)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-in">In Stock</div>
+                <img src="../Flower_images/trou_3.jpg" alt="Corsage">
+                <div class="product-info">
+                    <h3>Corsage</h3>
+                    <p>Elegant floral accessory for clothing as well as the arm.</p>
+                    <div class="card-footer">
+                        <p class="price">R 120.00</p>
+                        <button class="buy-btn" onclick="addToCart('Corsage', 120)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-out">Out of Stock</div>
+                <img src="../Flower_images/trou_4.jpg" alt="Hair Corsage">
+                <div class="product-info">
+                    <h3>Hair Corsage</h3>
+                    <p>Delicate flowers for a romantic hairstyle.</p>
+                    <div class="card-footer">
+                        <p class="price">R 95.00</p>
+                        <button class="buy-btn" onclick="addToCart('Hair Corsage', 95)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Functions & Decor</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="stock-badge stock-in">In Stock</div>
+                <img src="../Flower_images/dekor_1.jpg" alt="Table Decor">
+                <div class="product-info">
+                    <h3>Table Arrangements</h3>
+                    <p>Stylish decor for any occasion.</p>
+                    <div class="card-footer">
+                        <p class="price">R 300.00</p>
+                        <button class="buy-btn" onclick="addToCart('Table Arrangements', 300)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-low">On Order Only</div>
+                <img src="../Flower_images/dekor_2.jpg" alt="Large Decor">
+                <div class="product-info">
+                    <h3>Large Decor Arrangements</h3>
+                    <p>Large flower boxes for entrances or focal points.</p>
+                    <div class="card-footer">
+                        <p class="price">R 120.00</p>
+                        <button class="buy-btn" onclick="addToCart('Large Decor Arrangements', 120)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-out">Temporarily Out of Stock</div>
+                <img src="../Flower_images/boog.jpg" alt="Flower Arch">
+                <div class="product-info">
+                    <h3>Flower Arch</h3>
+                    <p>Beautiful arches for weddings or photoshoots.</p>
+                    <div class="card-footer">
+                        <p class="price">R 850.00</p>
+                        <button class="buy-btn" onclick="addToCart('Flower Arch', 850)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-in">Contact for Quote</div>
+                <img src="../Flower_images/Full_package.jpg" alt="Full Package">
+                <div class="product-info">
+                    <h3>Full Package Flower Decor</h3>
+                    <p>Customized decor for your entire event.</p>
+                    <div class="card-footer">
+                        <p class="price">Quote</p>
+                        <button class="buy-btn" onclick="location.href='Contact_Us.html'"><i class="fas fa-envelope"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Single Flowers (Per Stem)</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="stock-badge stock-in">Plenty of Stock</div>
+                <img src="../Flower_images/roos.jpg" alt="Rose">
+                <div class="product-info">
+                    <h3>Rose</h3>
+                    <p>Elegant and fragrant classic flower.</p>
+                    <div class="card-footer">
+                        <p class="price">R 45.00</p>
+                        <button class="buy-btn" onclick="addToCart('Rose', 45)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-in">In Stock</div>
+                <img src="../Flower_images/Sunset_Marigold.jpg" alt="Marigold">
+                <div class="product-info">
+                    <h3>Marigold</h3>
+                    <p>Strong and weather-resistant bright flower.</p>
+                    <div class="card-footer">
+                        <p class="price">R 45.00</p>
+                        <button class="buy-btn" onclick="addToCart('Marigold', 45)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-low">Low Stock</div>
+                <img src="../Flower_images/petunia.jpg" alt="Petunia">
+                <div class="product-info">
+                    <h3>Petunia</h3>
+                    <p>Cheerful flowers available in various colors.</p>
+                    <div class="card-footer">
+                        <p class="price">R 45.00</p>
+                        <button class="buy-btn" onclick="addToCart('Petunia', 45)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-low">Low Stock</div>
+                <img src="../Flower_images/Sunflower_Field.jpg" alt="Sunflower">
+                <div class="product-info">
+                    <h3>Sunflower</h3>
+                    <p>Large yellow flowers that follow the sun.</p>
+                    <div class="card-footer">
+                        <p class="price">R 45.00</p>
+                        <button class="buy-btn" onclick="addToCart('Sunflower', 45)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-in">In Stock</div>
+                <img src="../Flower_images/lelie.jpg" alt="Lily">
+                <div class="product-info">
+                    <h3>Lily</h3>
+                    <p>Elegant trumpet-shaped fragrant flowers.</p>
+                    <div class="card-footer">
+                        <p class="price">R 45.00</p>
+                        <button class="buy-btn" onclick="addToCart('Lily', 45)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-low">Low Stock</div>
+                <img src="../Flower_images/Protea_Meets_Mountain.jpg" alt="Protea">
+                <div class="product-info">
+                    <h3>Protea</h3>
+                    <p>Dramatic structural national flower.</p>
+                    <div class="card-footer">
+                        <p class="price">R 65.00</p>
+                        <button class="buy-btn" onclick="addToCart('Protea', 65)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-in">In Stock</div>
+                <img src="../Flower_images/Daisy_Growth_Stages.jpg" alt="Daisy">
+                <div class="product-info">
+                    <h3>Daisy</h3>
+                    <p>Simple white and yellow cheerfulness.</p>
+                    <div class="card-footer">
+                        <p class="price">R 45.00</p>
+                        <button class="buy-btn" onclick="addToCart('Daisy', 45)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-in">In Stock</div>
+                <img src="../Flower_images/lavender_agter.jpg" alt="Lavender">
+                <div class="product-info">
+                    <h3>Lavender</h3>
+                    <p>Fragrant purple flowers for relaxation.</p>
+                    <div class="card-footer">
+                        <p class="price">R 45.00</p>
+                        <button class="buy-btn" onclick="addToCart('Lavender', 45)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-in">In Stock</div>
+                <img src="../Flower_images/carnations.jpg" alt="Carnations">
+                <div class="product-info">
+                    <h3>Carnations</h3>
+                    <p>Fragrant, long-blooming flowers; ideal for cut flowers.</p>
+                    <div class="card-footer">
+                        <p class="price">R 45.00</p>
+                        <button class="buy-btn" onclick="addToCart('Carnations', 45)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-in">In Stock</div>
+                <img src="../Flower_images/vygie.jpg" alt="Vygie">
+                <div class="product-info">
+                    <h3>Vygie</h3>
+                    <p>Colorful succulent carpet flowers.</p>
+                    <div class="card-footer">
+                        <p class="price">R 45.00</p>
+                        <button class="buy-btn" onclick="addToCart('Vygie', 45)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-low">Season Ending</div>
+                <img src="../Flower_images/Agapanthus_flower_pot.jpg" alt="Agapanthus">
+                <div class="product-info">
+                    <h3>Agapanthus</h3>
+                    <p>The iconic Blue Lily of South Africa.</p>
+                    <div class="card-footer">
+                        <p class="price">R 45.00</p>
+                        <button class="buy-btn" onclick="addToCart('Agapanthus', 45)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-out">Out of Stock</div>
+                <img src="../Flower_images/peonie5.jpg" alt="Peony">
+                <div class="product-info">
+                    <h3>Peony</h3>
+                    <p>Large, full flowers in white, pink, and red.</p>
+                    <div class="card-footer">
+                        <p class="price">R 55.00</p>
+                        <button class="buy-btn" onclick="addToCart('Peony', 55)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-in">In Stock</div>
+                <img src="../Flower_images/stok_rose.jpg" alt="Hollyhocks">
+                <div class="product-info">
+                    <h3>Hollyhocks</h3>
+                    <p>Tall upright flowers growing in clusters.</p>
+                    <div class="card-footer">
+                        <p class="price">R 45.00</p>
+                        <button class="buy-btn" onclick="addToCart('Hollyhocks', 45)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-low">Low Stock</div>
+                <img src="../Flower_images/Zinnia1.jpg" alt="Zinnia">
+                <div class="product-info">
+                    <h3>Zinnia</h3>
+                    <p>Colorful, daisy-like flowers that bloom all season.</p>
+                    <div class="card-footer">
+                        <p class="price">R 45.00</p>
+                        <button class="buy-btn" onclick="addToCart('Zinnia', 45)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="stock-badge stock-in">In Stock</div>
+                <img src="../Flower_images/sweetpea_3.jpg" alt="Sweet Pea">
+                <div class="product-info">
+                    <h3>Sweet Pea</h3>
+                    <p>Fragrant, climbing flowers suitable for gates.</p>
+                    <div class="card-footer">
+                        <p class="price">R 60.00</p>
+                        <button class="buy-btn" onclick="addToCart('Sweet Pea', 60)"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="Shop.js"></script>
+
+   <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toast-message"></span>
+</div>
+</body>
+</html>

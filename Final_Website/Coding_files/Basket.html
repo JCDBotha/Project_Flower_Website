@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary | In Full Bloom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Basket.css">
+</head>
+<body>
+
+    <nav class="no-print">
+        <div class="nav-container">
+            <a href="Online_Store.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Store
+            </a>
+        </div>
+    </nav>
+
+    <main class="checkout-container">
+        
+        <section class="cart-section">
+            <div class="breadcrumb">
+                <span>Cart</span> &gt; <span class="active">Order</span> &gt; <span>Payment</span> &gt; <span>Done</span>
+            </div>
+            
+            <div class="section-card" id="mandjie-items-houer">
+                </div>
+        </section>
+
+        <aside class="summary-section">
+            <div class="summary-card">
+                <h3>Order Summary</h3>
+                
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotaal-prys">R 0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Discount (10%, above R1000):</span>
+                    <span id="afslag-bedrag" class="promo">R 0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery:</span>
+                    <span class="free-text">FREE</span>
+                </div>
+
+                <div class="summary-total">
+                    <span>
+                        Total<br>
+                        <small>(VAT included)</small>
+                    </span>
+                    <span class="final-price" id="totaal-prys">R 0.00</span>
+                </div>
+
+                <button id="betaal-btn" class="pay-button">Pay Now</button>
+
+
+                <div class="payment-card">
+                    <h4>We Accept:</h4>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i class="fab fa-cc-paypal" title="PayPal"></i>
+                        <i class="fab fa-apple-pay" title="Apple Pay"></i>
+                        <i class="fab fa-google-pay" title="Google Pay"></i>
+                        <i class="fas fa-university" title="EFT"></i>
+                    </div>
+                    <p class="secure-text"><i class="fas fa-lock"></i> Secure 256-bit Encryption</p>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+    <script src="Shop.js"></script>
+    
+    <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toast-message"></span>
+</div>
+</body>
+</html>

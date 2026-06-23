@@ -1,0 +1,285 @@
+/* --- CARTTEST.CSS FINAL VERSION --- */
+
+:root {
+    --dark-orange: #f8a861;
+    --light-orange: #f4c77f;
+    --background: #e7e2e2;
+    --white: #ffffff;
+    --text: #333;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    max-width: 1100px;
+    margin: 0 auto 20px;
+}
+
+.back-btn {
+    text-decoration: underline;
+    color: var(--dark-orange);
+    font-weight: 650;
+    font-size: 1.2em;
+}
+
+/* --- MAIN CONTAINER (LEFT VS RIGHT ALIGNMENT) --- */
+.checkout-container {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* --- LEFT SIDE: ITEMS --- */
+.cart-section {
+    flex: 2;
+}
+
+.breadcrumb {
+    font-size: 1.1rem;
+    color: #888; /* Make the rest of the words lighter */
+    margin-bottom: 25px;
+    font-weight: normal; /* Remove bold here */
+    display: block;
+}
+
+.breadcrumb span.active {
+    color: #0d0d0d; /* Active word is darker */
+    font-weight: bold; /* Only the active word is bold */
+}
+
+/* Optional: Make the arrows (dots) a lighter color */
+.breadcrumb {
+    letter-spacing: 2px;
+}
+
+/* Align the right column precisely */
+.summary-section {
+    flex: 1.1;
+    margin-top: 55px; /* Adjust until aligned with left side */
+}
+
+/* Ensure main container aligns everything at the top */
+.checkout-container {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 40px;
+    align-items: flex-start; /* Critical for alignment */
+}
+
+.section-card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.cart-item {
+    display: flex;
+    padding: 25px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+    gap: 20px;
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.item-info { flex-grow: 1; }
+
+.item-info h4 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+}
+
+/* --- CONTROLS & TRASH BIN --- */
+.item-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Space between +/- and trash */
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.quantity-control button {
+    background: #f9f9f9;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.quantity-control span { padding: 0 15px; font-weight: bold; }
+
+/* TRASH BIN FIX */
+.remove-btn {
+    background: none;
+    border: none;
+    color: #bbb;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.remove-btn:hover {
+    color: #ff6b6b;
+    transform: scale(1.1);
+}
+
+/* --- RIGHT SIDE: SUMMARY --- */
+.summary-section {
+    flex: 1.1;
+    margin-top: 48px; /* Align with left box */
+}
+
+.summary-card {
+    background-color: var(--white);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.summary-card h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    border: none; /* No line under title */
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px; 
+    font-size: 1.05rem;
+}
+
+/* --- NEW LINE ABOVE TOTAL --- */
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 30px;
+    padding-top: 25px; /* Space between line and text */
+    border-top: 2px solid #eee; /* Line above total */
+}
+
+.summary-total span:first-child {
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
+.summary-total small {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: #888;
+    margin-top: 5px;
+}
+
+.final-price {
+    font-size: 1.7rem;
+    color: var(--dark-orange);
+    font-weight: 800;
+}
+
+/* --- BUTTON & ICONS --- */
+.pay-button {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.8rem;
+    margin-top: 25px;
+    color: #555;
+}
+
+.secure-text {
+    font-size: 0.8rem;
+    color: #aaa;
+    text-align: center;
+    margin-top: 10px;
+    display: block;
+}
+
+/* --- TOAST CENTERING FIX --- */
+.toast {
+    position: fixed !important;
+    top: 50% !important;   /* Anchor in the middle vertically */
+    left: 50% !important;  /* Anchor in the middle horizontally */
+    
+    /* Shift box back so its own center is in the middle */
+    transform: translate(-50%, -50%) scale(0.8) !important;
+    
+    background: rgba(0, 0, 0, 0.9) !important;
+    color: white !important;
+    padding: 20px 40px !important;
+    border-radius: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    z-index: 10000 !important; /* Ensure it stays above cards */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    min-width: 320px !important;
+    justify-content: center !important;
+}
+
+.toast.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    /* Pop-out effect centered */
+    transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+.toast i {
+    color: var(--dark-orange) !important;
+    font-size: 1.8rem !important;
+}
+
+.toast span {
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+}
+
+/* Responsive adjustment */
+@media (max-width: 1024px) {
+    .full-screen-container { grid-template-columns: 1fr; }
+    .calendar-layout { flex-direction: column; }
+}
+
